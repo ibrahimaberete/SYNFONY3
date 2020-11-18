@@ -129,8 +129,9 @@ class AdController extends AbstractController
 
     /**
      * Permet d'afficher une seule annonece 
-     * @Security("is_granted('ROLE_USER') and user === ad.getAuthor()", message="cette annonce est pas vous ! vous ne pouvez pas la modifier")
+     *
      * @Route("/ads/{slug}", name="ads_show")
+     * 
      * @return Response
      */
     public function show(Ad $ad){
@@ -146,6 +147,7 @@ class AdController extends AbstractController
     * permet de supprimer 
     *
     *@Route("/ads/{slug}/delete", name="ads_delete")
+    *  @Security("is_granted('ROLE_USER') and user === ad.getAuthor()", message="cette annonce est pas vous ! vous ne pouvez pas la modifier")
     * @param Ad $ad
     * @param ObjectManager $manager
     * @return Response 
